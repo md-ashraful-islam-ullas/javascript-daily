@@ -11,13 +11,13 @@
 
     <script>
       function subscribe() {
-        const buttonElement = document.querySelector(".js-subscribe-button");
+       const buttonElement = document.querySelector('.js-subscribe-button');
 
-        if (buttonElement.textContent === "Subscribe") {
-          buttonElement.textContent = "Subscribed";
-        } else {
-          buttonElement.textContent = "Subscribe";
-        }
+       if (buttonElement.textContent === 'Subscribe') {
+        buttonElement.textContent = 'Subscribed';
+       } else if (buttonElement.textContent === 'Subscribed') {
+        buttonElement.textContent = 'Subscribe';
+       }
       }
     </script>
   </body>

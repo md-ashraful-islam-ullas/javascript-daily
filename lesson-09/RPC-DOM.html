@@ -14,19 +14,30 @@
 
     <button onclick="playGame('Scissors')">Scissors</button>
 
-    <button onclick="
+    <button
+      onclick="
         score.Win = 0;
         score.Losses = 0;
         score.Tie = 0;
-        localStorage.removeItem('score');
-      ">Reset score</button>
+        localStorage.removeItem('score-f');
+        updateScoreElement();
+      "
+    >
+      Reset score
+    </button>
+
+    <p class="js-result"></p>
+    <p class="js-move-both"></p>
+    <p class="js-score"></p>
 
     <script>
-      const score = JSON.parse(localStorage.getItem("score")) || {
+      const score = JSON.parse(localStorage.getItem("score-f")) || {
         Win: 0,
         Losses: 0,
         Tie: 0,
       };
+
+      updateScoreElement();
 
       function playGame(playerMove) {
         const computerMove = pickComputerMove();
@@ -67,11 +78,28 @@
           score.Tie++;
         }
 
-        localStorage.setItem("score", JSON.stringify(score));
+        localStorage.setItem("score-f", JSON.stringify(score));
 
-        alert(
-          `You picked ${playerMove}. Computer picked ${computerMove}. ${result}.\nWins: ${score.Win}, Losses: ${score.Losses}, Tie: ${score.Tie}`,
-        );
+        // alert(
+        //   `You picked ${playerMove}. Computer picked ${computerMove}. ${result}.\nWins: ${score.Win}, Losses: ${score.Losses}, Tie: ${score.Tie}`,
+        // );
+
+        updateFinalResult(result);
+        moveMeComputer(playerMove, computerMove);
+        updateScoreElement();
+      }
+
+      function updateScoreElement() {
+        document.querySelector(".js-score").innerHTML =
+          `Wins: ${score.Win}, Losses: ${score.Losses}, Tie: ${score.Tie}`;
+      }
+
+      function updateFinalResult(result) {
+        document.querySelector('.js-result').innerHTML = result;
+      }
+
+      function moveMeComputer(playerMove, computerMove) {
+        document.querySelector('.js-move-both').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
       }
 
       function pickComputerMove() {
