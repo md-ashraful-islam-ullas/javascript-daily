@@ -9,15 +9,45 @@
     <p>YouTube Subscribe Button</p>
     <button onclick="subscribe()" class="js-subscribe-button">Subscribe</button>
 
-    <script>
-      function subscribe() {
-       const buttonElement = document.querySelector('.js-subscribe-button');
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input
+      type="text"
+      placeholder="Cost of Order"
+      class="js-cost-input"
+      onkeydown="handleCostkeydown(event);"
+    />
+    <button onclick="calculateTotal()">Calculate</button>
+    <p class="js-total-cost"></p>
 
-       if (buttonElement.textContent === 'Subscribe') {
-        buttonElement.textContent = 'Subscribed';
-       } else if (buttonElement.textContent === 'Subscribed') {
-        buttonElement.textContent = 'Subscribe';
-       }
+    <script>
+      function handleCostkeydown(event) {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
+
+      function calculateTotal() {
+        const inputElement = document.querySelector(".js-cost-input");
+        let cost = Number(inputElement.value);
+
+        if (cost < 40) {
+          cost = cost + 10;
+        }
+
+        document.querySelector(".js-total-cost").innerHTML = `$${cost}`;
+      }
+
+      //--------------------
+      function subscribe() {
+        const buttonElement = document.querySelector(".js-subscribe-button");
+
+        if (buttonElement.textContent === "Subscribe") {
+          buttonElement.textContent = "Subscribed";
+        } else if (buttonElement.textContent === "Subscribed") {
+          buttonElement.textContent = "Subscribe";
+        }
       }
     </script>
   </body>
