@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Type Something: " class="js-input" onkeyup="runningType()">
+    <p class="js-show"></p>
+    <script>
+        function runningType() {
+            const inputElement = document.querySelector('.js-input').value;
+            document.querySelector('.js-show').innerHTML = inputElement;
+        }
+    </script>
+</body>
+</html>
