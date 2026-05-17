@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing Text Content</title>
+</head>
+<body>
+    <p id="example">Original Text Content</p>
+    <button id="changeTextButton">Change Text</button>
+
+    <script>
+
+        // This is onclick method. Put this function inside button.
+        // function changeText() {
+        //     document.querySelector('#example').innerHTML = 'Text Changed';
+        // }
+
+        // console.log(document.querySelector('#changeTextButton')); // same as getElementById()
+        let button = document.getElementById('changeTextButton');
+        // console.log(button);
+
+        button.addEventListener("click", function() {
+            let paragraph = document.getElementById('example');
+
+            paragraph.textContent = 'New Text Content';
+        });
+    </script>
+</body>
+</html>

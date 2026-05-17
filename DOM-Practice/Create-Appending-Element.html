@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating and Appending Elements</title>
+  </head>
+  <style>
+    .new-class {
+      color: red;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <div id="parent">
+      <p>This is an existing paragraph.</p>
+    </div>
+    <button id="addElementButton">Add Element</button>
+
+    <script>
+      let button = document.querySelector("#addElementButton");
+
+      button.addEventListener("click", function () {
+        let newElement = document.createElement("p");
+        newElement.innerHTML = "This is a new paragraph.";
+        newElement.setAttribute("class", "new-class");
+
+        let parentDiv = document.getElementById("parent");
+        parentDiv.appendChild(newElement);
+      });
+
+
+      // append can add multiple element. This is Modern approach.
+      // appendChild can add only one element at once. Old approach.
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adding and Removing Classes</title>
+    <style>
+      .new-class {
+        color: red;
+        font-size: 30px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="example" class="old-class">This is a paragraph.</p>
+    <button id="toggleClassButton">Toggle Class</button>
+
+    <script>
+      let button = document.getElementById("toggleClassButton");
+
+      button.addEventListener("click", function () {
+        let paragraph = document.querySelector("#example");
+
+        paragraph.classList.toggle("new-class");
+        // paragraph.classList.add("new-class");
+        // paragraph.classList.remove("new-class");
+      });
+    </script>
+  </body>
+</html>

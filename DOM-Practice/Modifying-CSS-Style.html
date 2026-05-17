@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="example">This is a paragraph</p>
+    <button id="changeStyleButton">Change Style</button>
+
+    <script>
+        let button = document.getElementById('changeStyleButton');
+
+        button.addEventListener("click", function() {
+            let paragraph = document.getElementById('example');
+
+            paragraph.style.backgroundColor = "lightblue";
+            paragraph.style.fontSize = "20px";
+        });
+    </script>
+  </body>
+</html>
