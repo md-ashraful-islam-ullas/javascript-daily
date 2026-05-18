@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traversing the DOM</title>
+  </head>
+  <body>
+    <div id="parent">
+      <p id="example">This is a paragraph.</p>
+      <p>This is the next paragraph.</p>
+      <button>Hello</button>
+    </div>
+    <script>
+        // select the child. 
+        let element = document.getElementById('example');
+
+        // find out the parent of child(element)
+        let parent = element.parentElement;
+        console.log(parent);
+        // let parent1 = element.parentNode;
+        // console.log(parent1);
+
+        // all the children of the parent. Return an HTMLCollection.
+        let children = parent.children;
+        console.log(children);
+
+        // next sibling of child(element)
+        let nextSibling = element.nextElementSibling;
+        console.log(nextSibling);
+
+        // next sibling of child(nextSibling)
+        let secondNextSibling = nextSibling.nextElementSibling;
+        console.log(secondNextSibling);
+
+        // previous sibling of child(secondNextSibling). return (nextSibling).
+        let prevSibling = secondNextSibling.previousElementSibling;
+        console.log(prevSibling);
+
+        // first child of parent.
+        let firstChild = parent.firstElementChild;
+        console.log(firstChild);
+
+        // last child of parent.
+        let lastChild = parent.lastElementChild;
+        console.log(lastChild);
+    </script>
+  </body>
+</html>

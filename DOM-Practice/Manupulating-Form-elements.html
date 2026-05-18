@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulating Form Elements</title>
+  </head>
+  <body>
+    <form id="exampleForm">
+      <input type="text" id="exampleInput" value="Initial Value" />
+      <button type="submit">Submit</button>
+    </form>
+    <p id="output"></p>
+
+    <script>
+        let inputElement = document.getElementById('exampleInput');
+        let form = document.querySelector('#exampleForm');
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let inputValue = inputElement.value;
+            let output = document.getElementById('output');
+            output.textContent = `Form submitted with input value: ${inputValue}`;
+        });
+
+
+    // Without preventDefault():
+
+    // You click submit
+    // Browser submits form
+    // Page reloads
+    // Your output may flash and disappear instantly  
+    </script>
+  </body>
+</html>

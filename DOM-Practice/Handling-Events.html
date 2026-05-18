@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Handling Events</title>
+  </head>
+  <body>
+    <button id="exampleButton">Click Me</button>
+    <p id="message">No interactions yet.</p>
+    <script>
+        let button = document.getElementById('exampleButton');
+
+        button.addEventListener("mouseover", function() {
+            let message = document.getElementById('message');
+
+            message.textContent = "Button was clicked!";
+        })
+    </script>
+  </body>
+</html>
